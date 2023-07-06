@@ -1,0 +1,36 @@
+{
+    "name": "Carbonita",
+    "version": "0.10.5",
+    "description": "Dynamic Action Plugin to generate Report based on template",
+    "keywords": [
+      "template",
+      "Report",
+      "Generate Document",
+      "Oracle Apex",
+      "pdf"
+    ],
+    "homepage": "https://github.com/hachemizakaria/carbonita",
+    "commercial" : "No",
+    
+    "author": {
+      "name": "hachemi zakaria",
+      "email": "hachemi.zakaria@gmail.com"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/hachemizakaria/carbonita.git"
+    },
+    "oracle": {
+      "versions": ["19.0"],
+      "apex": {
+        "versions": [ "23.1"],
+        "plugin": {
+          "internalName": "com.zakpex.apex.carbonita.da",
+          "type": "dynamic action",
+          "demo": "https://apex.oracle.com/pls/apex/r/hachemi/carbonita",
+          "previewImage": ""
+        }
+      }
+    }
+  }
+  

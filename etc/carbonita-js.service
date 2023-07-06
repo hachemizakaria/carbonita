@@ -1,0 +1,20 @@
+#/etc/systemd/system/carbonita.service
+[Unit]
+Description=carbonita
+
+[Service]
+ExecStart=/bin/node /opt/dev-carbonita/carbonita2/index.js
+Restart=always
+Restart=always
+        RestartSec=30
+        TimeoutStartSec=30
+        TimeoutStopSec=30
+#User=
+# Note Debian/Ubuntu uses 'nogroup', RHEL/Fedora uses 'nobody'
+#Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/opt/dev-carbonita/carbonita2
+SyslogIdentifier=ords
+[Install]
+WantedBy=multi-user.target
