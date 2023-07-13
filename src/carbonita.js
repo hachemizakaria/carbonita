@@ -1,7 +1,7 @@
 /*
 
 */
-var version = '0.10.5';
+var version = '0.10.7';
 
 var carbonita_js = {
     base64toBlob: function (pBase64, pMimeType) {
@@ -49,26 +49,15 @@ var carbonita_js = {
 
         var v_output_filename = daThis.action.attribute01;
 
-        var v_output_format_type =daThis.action.attribute02;      
-        var v_output_format     = daThis.action.attribute03;
-        var v_output_format_item = daThis.action.attribute04;
-        
-        var v_items_to_submit = daThis.action.attribute09;
 
-        if (v_output_format_type == 'PageItem') {
-            v_output_format = $v(v_output_format_item);
-        }
+        var v_items_to_submit = daThis.action.attribute02;
+
+   
 
         // APEX Ajax Call
         apex.server.plugin(v_AjaxIdentifier, {
 
-            x01: 'template-test.docx',
-
-
-            x02: v_output_format || 'docx',
-            x03: v_output_filename,
-            //   x04: v_query_parameters,  //TOOD should be a way to send as array ?
-            //   x05: $v(v_query_values_item) || v_query_values,
+            x01:  v_output_filename,
 
             pageItems: v_items_to_submit //"#P1_DEPTNO,#P1_EMPNO", template
 
@@ -80,7 +69,6 @@ var carbonita_js = {
                 $('body').trigger('carbonita-report-received');
 
                 var x_report_mimetype = DataFromAjax.reportgenerated.mimetype;
-                var x_report_filename = DataFromAjax.reportgenerated.filename;
                 var x_report_base64 = DataFromAjax.reportgenerated.base64;
 
 

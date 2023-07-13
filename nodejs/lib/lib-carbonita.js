@@ -1,14 +1,17 @@
 /*
-  version 0.10.5  2023-07-04
+  version 0.6.18  2023-07-10
   
-  logic :
+  Logic :
   - receive fields and files 
-  - render using carbone , libreoffice
+  - parse data hierarchically
+  - render using carbone , libreoffice (soffice)
   - send back rendered file
 
-  bugs :
-    - options work on windows but do not work on some linux 
-        workarrouand : install rpm libreoffice and install yum 
+  Changes :
+    - added function parseDataHierarchically to handle master/details in js (?)
+
+
+  
 */
 
 const formidable = require("formidable");
@@ -17,7 +20,38 @@ const carbone = require("carbone");
 const mime = require("./lib-mimestypes");
 const util = require("util");
 
-const version = "0.9.104";
+const version = "0.6.18";
+
+
+
+function parseDataHierarchically(dataString) {
+  const parsedData = JSON.parse(dataString);
+
+  const parseNestedJSON = (value) => {
+    try {
+      const parsedValue = JSON.parse(value);
+      return parsedValue;
+    } catch (error) {
+      // Ignore parsing errors if it's not valid JSON
+      return value;
+    }
+  };
+
+  const parseObject = (obj) => {
+    for (let key in obj) {
+      if (typeof obj[key] === 'string') {
+        obj[key] = parseNestedJSON(obj[key]);
+      } else if (typeof obj[key] === 'object') {
+        parseObject(obj[key]);
+      }
+    }
+  };
+
+  parseObject(parsedData);
+
+  return parsedData;
+}
+
 
 async function c_get(req, res) {
   res.writeHead(200, { "Content-Type": "text/html" });
@@ -26,6 +60,7 @@ async function c_get(req, res) {
 
 async function c_post(req, res) {
   try {
+    console.log(version)
     const form = new formidable.IncomingForm({ multiples: true });
 
     const { fields, files } = await new Promise((resolve, reject) => {
@@ -33,6 +68,7 @@ async function c_post(req, res) {
         if (err) {
           reject(err);
         } else {
+
           resolve({ fields, files });
         }
       });
@@ -49,12 +85,16 @@ async function c_post(req, res) {
     }
 
     report.result_path = `./result-${add()}.${fields.report_type}`;
-    report.data = JSON.parse(fields.data_text);
+    //report.data = JSON.parse(fields.data_text);
+    //test master/details by parsing hierarchically
+    report.data = await parseDataHierarchically(fields.data_text);
+
+
     report.report_name = fields.report_name || "result";
     report.report_type = fields.report_type || "txt";
     report.mimetype = mime.get_mime(report.report_type);
 
-    console.log("Starting rendering...");
+    console.log("Starting "+version+" rendering...");
 
     var options = {
       convertTo: report.report_type,

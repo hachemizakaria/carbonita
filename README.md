@@ -37,16 +37,12 @@ This application use nodejs server side rendering , which use libreoffice.
 
 - [x] https
 - [x] plugin da
-- [ ] plugin process
-- [ ] plugin report
+- [x] master details
 - [x] nodeserver as service
 - [x] parameters
-- [x] delete template, base64, generated report after response
 - [ ] template 0 from report/query
 - [ ] data from context IR
-- [ ] Oauth / security to access
-- [ ] Service as REST
-- [ ] check RTL templates (charset issues)
+- [ ] Oauth / security to access, Service as REST
 
 ## References & Credits
 
