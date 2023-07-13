@@ -1161,7 +1161,7 @@ wwv_flow_imp_shared.create_plugin_setting(
  p_id=>wwv_flow_imp.id(39065844642387138445)
 ,p_plugin_type=>'DYNAMIC ACTION'
 ,p_plugin=>'PLUGIN_COM.ZAKPEX.APEX.CARBONITA.DA'
-,p_attribute_01=>'https://crb.demo.zakpex.com'
+,p_attribute_01=>'https://192.168.1.10'
 ,p_attribute_02=>';'
 );
 end;
@@ -18539,7 +18539,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_substitute_attributes=>true
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'0.6.18'
-,p_about_url=>'https://www.zakpex.com'
+,p_about_url=>'https://github.com/hachemizakaria/carbonita'
 ,p_files_version=>99
 );
 wwv_flow_imp_shared.create_plugin_attr_group(

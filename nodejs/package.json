@@ -1,6 +1,6 @@
 {
   "name": "carbonita",
-  "version": "0.4.2",
+  "version": "0.6.18",
   "description": "generate reports in apex based on templates using carbone",
   "main": "index.js",
   "dependencies": {
