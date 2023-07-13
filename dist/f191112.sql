@@ -33,7 +33,7 @@ prompt APPLICATION 191112 - carbonita
 -- Application Export:
 --   Application:     191112
 --   Name:            carbonita
---   Date and Time:   11:37 Thursday July 13, 2023
+--   Date and Time:   16:36 Thursday July 13, 2023
 --   Exported By:     ZAKI
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -86,7 +86,7 @@ wwv_imp_workspace.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_owner=>nvl(wwv_flow_application_install.get_schema,'WKSP_HACHEMI')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'carbonita')
-,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'CARBONITA208')
+,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'CARBONITA')
 ,p_page_view_logging=>'YES'
 ,p_page_protection_enabled_y_n=>'Y'
 ,p_checksum_salt=>'29C949FC9CC14E6563D2B31D9BC32EC9B8270419D83715717709AEC85676A0B1'
@@ -118,7 +118,7 @@ wwv_imp_workspace.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'zx carbonita'
 ,p_last_updated_by=>'ZAKI'
-,p_last_upd_yyyymmddhh24miss=>'20230713113344'
+,p_last_upd_yyyymmddhh24miss=>'20230713163527'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>45
 ,p_print_server_type=>'NATIVE'
@@ -18570,7 +18570,7 @@ wwv_flow_imp_shared.create_plugin_attribute(
 ,p_attribute_type=>'TEXT'
 ,p_is_required=>true
 ,p_is_translatable=>false
-,p_examples=>'https://carbonita.example.com'
+,p_examples=>'https://192.168.1.10'
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '# Server where request will be submited.',
 'The Server should run nodejs , libreoffice and the required carbonita package'))
