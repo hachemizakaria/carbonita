@@ -498,7 +498,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_substitute_attributes=>true
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'0.6.18'
-,p_about_url=>'https://www.zakpex.com'
+,p_about_url=>'https://github.com/hachemizakaria/carbonita'
 ,p_files_version=>99
 );
 wwv_flow_imp_shared.create_plugin_attr_group(
@@ -529,7 +529,7 @@ wwv_flow_imp_shared.create_plugin_attribute(
 ,p_attribute_type=>'TEXT'
 ,p_is_required=>true
 ,p_is_translatable=>false
-,p_examples=>'https://carbonita.example.com'
+,p_examples=>'https://192.168.1.10'
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '# Server where request will be submited.',
 'The Server should run nodejs , libreoffice and the required carbonita package'))
