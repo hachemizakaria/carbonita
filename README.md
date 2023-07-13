@@ -10,6 +10,12 @@ The generated reports can be PDF, DOCX, or XLSX.
 carbonita generate pdf, docx, xlsx report whithin apex application
 This application use nodejs server side rendering , which use libreoffice.
 
+## Demo
+
+demo application : https://apex.oracle.com/pls/apex/r/hachemi/carbonita
+username demo
+password password123
+
 ## installation
 
 ### Requirements
