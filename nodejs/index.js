@@ -20,21 +20,24 @@ const PORT_HTTP = 80;
 const PORT_HTTPS = 443;
 
 
-
+/*
 const options = {
   key: fs.readFileSync("./certs/server.key.pem"),
   cert: fs.readFileSync("./certs/server.pem")
-};
+}; 
+*/
 
-app.use(favicon(path.join(__dirname,  'favicon.ico')))
+
+app.use(favicon(path.join(__dirname, 'favicon.ico')))
 
 app.route('/')
   .get(method_handler.crbt_get)
   .post(method_handler.crbt_post);
 
-https.createServer(options, app).listen(PORT_HTTPS, () => {
-  console.log("HTTPS server is running at port " + PORT_HTTPS);
-});
+// https listner is mandatory if used on Autonomous DB
+// https.createServer(options, app).listen(PORT_HTTPS, () => {
+//   console.log("HTTPS server is running at port " + PORT_HTTPS);
+// });
 
 http.createServer(app).listen(PORT_HTTP, () => {
   console.log("HTTP server is running at port " + PORT_HTTP);

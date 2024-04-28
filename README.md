@@ -28,8 +28,13 @@ password password123
 ### Steps
 
 1. install node js
+   1. dnf module install nodejs:14
 2. install libreoffice on the nodejs server
+   1. dnf install libreoffice
 3. install carbonita package on node js
+   1. copy folder carbonita/nodejs
+   2. npm install
+   3. node index.js
 4. install application on apex
 5. Allow access from apex to the nodejs server
 
