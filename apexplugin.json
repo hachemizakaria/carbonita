@@ -1,7 +1,7 @@
 {
     "name": "Carbonita",
-    "version": "0.6.18",
-    "description": "Dynamic Action Plugin to generate Report based on template",
+    "version": "0.7.82",
+    "description": "Dynamic Action Plugin to generate office Report based on template",
     "keywords": [
       "template",
       "Report",
@@ -23,7 +23,7 @@
     "oracle": {
       "versions": ["19.0"],
       "apex": {
-        "versions": [ "23.1"],
+        "versions": [ "24.2"],
         "plugin": {
           "internalName": "com.zakpex.apex.carbonita.da",
           "type": "dynamic action",

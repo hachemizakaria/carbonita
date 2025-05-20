@@ -1,8 +1,12 @@
 # carbonita
 
-pdf generator for oracle apex #orclAPEX based on carbone,
+[![APEX Community](https://cdn.rawgit.com/Dani3lSun/apex-github-badges/78c5adbe/badges/apex-community-badge.svg)](https://github.com/Dani3lSun/apex-github-badges) [![APEX Plugin](https://cdn.rawgit.com/Dani3lSun/apex-github-badges/b7e95341/badges/apex-plugin-badge.svg)](https://github.com/Dani3lSun/apex-github-badges)
+[![APEX Built with Love](https://cdn.rawgit.com/Dani3lSun/apex-github-badges/7919f913/badges/apex-love-badge.svg)](https://github.com/Dani3lSun/apex-github-badges)
 
-Based on [Carbone](https://carbone.io)  , Carbonita use template to generate reports from queries or Interactive report in apex.
+
+Carbonita is an Oracle Apex plugin [ #orclAPEX](https://apex.oracle.com) to generate office document  based on [Carbone](https://www.npmjs.com/package/carbone) ,
+
+Carbonita use template to generate reports from queries or Interactive report in apex.
 The generated reports can be PDF, DOCX, or XLSX.
 
 ## Description
@@ -22,43 +26,42 @@ password password123
 
 - Oracle APEX
 - NodeJS
-- Libreoffice
-- Carbone package on nodejs
+- Libreoffice installed on the server
+
 
 ### Steps
 
-1. install node js
-   1. dnf module install nodejs:14
-2. install libreoffice on the nodejs server
-   1. dnf install libreoffice
-3. install carbonita package on node js
-   1. copy folder carbonita/nodejs
-   2. npm install
-   3. node index.js
-4. install application on apex
-5. Allow access from apex to the nodejs server
+1. server install 
+   1. option A : (manual install)
+      1. install libreoffice on the nodejs server
+         1. > sudo dnf install java-openjdk17
+         2. > sudo dnf install python
+         3. > sudo dnf install libreoffice
+      2. node js
+         1. > sudo dnf module install nodejs:22
+      3. install carbonita package on nodejs
+         1. copy folder carbonita/nodejs into the server 
+         2. > npm install
+         3. > node index.js
+         4. (optional but required if in autonomous db) generate and copy ssl certificate 
+   2. Option B : (docker/podman install)
+      1. docker-compose up -d
+2. install APEX application () 
+3. configure and allow access from apex to the nodejs server
+   1. set nodejs server url
+   2. check network acl
 
 ## Knowns Issues
 
-- bidirectionnal loop
+- bidirectionnal loop ()
   - Two dimensional loop (pivot unknow number of rows may not show correctly)
-  - headers in bidirectionnal table may not show correcly.
+  - headers in bidirectionnal table may not show correctly.
 
-## TODO
-
-- [x] https
-- [x] plugin da
-- [x] master details
-- [x] nodeserver as service
-- [x] parameters
-- [ ] template 0 from report/query
-- [ ] data from context IR
-- [ ] Oauth / security to access, Service as REST
 
 ## References & Credits
 
 - [Carbone](https://carbone.io),
 - [LibreOffice](https://www.libreoffice.org/)
-- [AmandaDocxPrinter](https://github.com/aldocano29/AmandaDocxPrinter)
-- [Creating a REST API with Node.js and Oracle Database](https://jsao.io/2018/03/creating-a-rest-api-with-node-js-and-oracle-database/)
-- [Uploading and Downloading Files with Node.js and Oracle Database](https://jsao.io/2019/06/uploading-and-downloading-files-with-node-js-and-oracle-database)
+- Badge credits: [Dani3lSun](https://github.com/Dani3lSun/apex-github-badges).
+- AI including  https://chat.qwen.ai/, https://claude.ai , https://chatgpt.com
+

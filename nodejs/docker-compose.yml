@@ -1,0 +1,25 @@
+version: '0.7.82'
+name : carbonita
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: carbonita
+    image: localhost:5000/carbonita:latest    
+    volumes:
+      - .:/app
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+
+
+# firewall-cmd --permanent --zone=public --add-service=http  
+# firewall-cmd --permanent --zone=public --add-service=https  
+# firewall-cmd --reload
+
+## user letsencrypt to get you certificate
+# docker run -it --rm -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" -p 80:80 certbot/certbot certonly --standalone -d server.example.com --config-dir ~/.certbot/config --logs-dir ~/.certbot/logs --work-dir ~/.certbot/work
+
+# docker build -t localhost:5000/carbonita .
